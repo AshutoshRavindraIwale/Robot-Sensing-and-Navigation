@@ -1,0 +1,8 @@
+prefix=/home/ashutosh/catkin_ws/install
+
+Name: rospy
+Description: Description of rospy
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
