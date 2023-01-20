@@ -1,0 +1,3 @@
+A complete Ubuntu 20.04 LTS install
+You are ready to use Git and Github
+
