@@ -1,0 +1,2 @@
+rospy
+-DCATKIN_DEVEL_PREFIX=/home/ashutosh/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ashutosh/catkin_ws/install -G Unix Makefiles
