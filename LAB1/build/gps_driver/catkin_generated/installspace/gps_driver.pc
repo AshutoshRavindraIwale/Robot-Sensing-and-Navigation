@@ -1,0 +1,8 @@
+prefix=/home/ashutosh/EECE5554/LAB1/install
+
+Name: gps_driver
+Description: Description of gps_driver
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: roscpp rospy std_msgs
