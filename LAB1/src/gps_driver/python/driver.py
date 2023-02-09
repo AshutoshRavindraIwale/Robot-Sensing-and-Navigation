@@ -38,6 +38,7 @@ def Longitutde_convertion(nmea_string, direction):
     # If the hemisphere is 'S' or 'W', negate the value
     if direction in ['S', 'W']:
         decideg = -decideg
+        print(".....")
    
     return decideg
 
