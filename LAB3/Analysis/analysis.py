@@ -20,18 +20,18 @@ print(w, readings['IMU.orientation.w'])
 
 
 #def euler_from_quaternion(x, y, z, w):
-t_0 = +2.0 * (w * x + y * z)
-t_1 = +1.0 - 2.0 * (x * x + y *y)
-roll_x = np.degrees(np.arctan2(t_0, t_1))
+t0 = +2.0 * (w * x + y * z)
+t1 = +1.0 - 2.0 * (x * x + y *y)
+roll_x = np.degrees(np.arctan2(t0, t1))
 
-t_2 = +2.0 * (w * y - z * x)
-t_2 = np.where(t_2>+1.0, +1.0,t_2)
-t_2 = np.where(t_2<-1.0, -1.0,t_2)
-pitch_y = np.degrees(np.arcsin(t_2))
+t2 = +2.0 * (w * y - z * x)
+t2 = np.where(t2>+1.0, +1.0,t2)
+t2 = np.where(t2<-1.0, -1.0,t2)
+pitch_y = np.degrees(np.arcsin(t2))
 
-t_3 = +2.0 * (w * z + x * y)
-t_4 = +1.0 - 2.0 * (y * y+ z * z)
-yaw_z = np.degrees(np.arctan2(t_3, t_4))
+t3 = +2.0 * (w * z + x * y)
+t4 = +1.0 - 2.0 * (y * y+ z * z)
+yaw_z = np.degrees(np.arctan2(t3, t4))
 
 readings['Time'] = readings['Time'] - readings['Time'].min()
 readings['IMU.angular_velocity.x'] = readings['IMU.angular_velocity.x'] - readings['IMU.angular_velocity.x'].min()

@@ -65,25 +65,44 @@ def driver():
             gyroY = float(data[11])
             gyroZ = float(data[12][0:9])
 
-    
+            #convert degrees to radians 
+            #yaw_radian = yaw*np.pi/180;
+            #pitch_radian = pitch*np.pi/180;
+            #roll_radian = roll*np.pi/180;
+             
+            
+
+
+            #def orientation(roll, pitch, yaw):   #Convert an Euler angle to a quaternion.
+            #qx = np.sin(roll_radian/2) * np.cos(pitch_radian/2) * np.cos(yaw_radian/2) - np.cos(roll_radian/2) * np.sin(pitch_radian/2) * np.sin(yaw_radian/2)
+            #qy = np.cos(roll_radian/2) * np.sin(pitch_radian/2) * np.cos(yaw_radian/2) + np.sin(roll_radian/2) * np.cos(pitch_radian/2) * np.sin(yaw_radian/2)
+            #qz = np.cos(roll_radian/2) * np.cos(pitch_radian/2) * np.sin(yaw_radian/2) - np.sin(roll_radian/2) * np.sin(pitch_radian/2) * np.cos(yaw_radian/2)
+            #qw = np.cos(roll_radian/2) * np.cos(pitch_radian/2) * np.cos(yaw_radian/2) + np.sin(roll_radian/2) * np.sin(pitch_radian/2) * np.sin(yaw_radian/2)
+            #return [qx, qy, qz, qw]
+
+            #msg.header.stamp = rospy.Time.from_sec(now)
             msg.header.stamp.secs = int(now.secs)
             msg.header.stamp.nsecs = int(now.nsecs)
             msg.header.frame_id = 'IMU1_Frame'
             msg.IMU.orientation.x, msg.IMU.orientation.y, msg.IMU.orientation.z, msg.IMU.orientation.w = euler_to_quaternion(
                 roll, pitch, yaw)
+            #msg.IMU.orientation.x = qx
+            #msg.IMU.orientation.y = qy
+            #msg.IMU.orientation.z = qz
+            #msg.IMU.orientation.w = qw
             msg.IMU.linear_acceleration.x = accX
             msg.IMU.linear_acceleration.y = accY
             msg.IMU.linear_acceleration.z = accZ
             msg.IMU.angular_velocity.x = gyroX
             msg.IMU.angular_velocity.y = gyroY
             msg.IMU.angular_velocity.z = gyroZ
-            msg.MagField.magnetic_field.x = magX
-            msg.MagField.magnetic_field.y = magY
-            msg.MagField.magnetic_field.z = magZ
+            msg.MagField.mag_field.x = magX
+            msg.MagField.mag_field.y = magY
+            msg.MagField.mag_field.z = magZ
             msg.VNYMR = recieve
 
             pub.publish(msg)
-           
+            #rate.sleep()
 
 
 if __name__ == '__main__':

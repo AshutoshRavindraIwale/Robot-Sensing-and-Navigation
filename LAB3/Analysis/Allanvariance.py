@@ -16,25 +16,25 @@ import allantools
 # In[154]:
 
 
-LocationD = pd.read_csv('/home/ashutosh/catkin_ws/src/LAB3/data/LocationD-vectornav.csv')
+LocationD = pd.read_csv('LocationD-vectornav.csv')
 
 
 # In[299]:
 
 
-LocaDx = []
-LocaDy = []
-LocaDz = []
+LocationD_x = []
+LocationD_y = []
+LocationD_z = []
 LocationD_ax = []
 LocationD_ay = []
 LocationD_az = []
 time = []
 for i in LocationD[".data"]:
     if len(str(i).split(",")) >= 13:
-        LocaDx.append(float(str(i).split(",")[10])) 
-        LocaDy.append(float(str(i).split(",")[11]))
+        LocationD_x.append(float(str(i).split(",")[10])) 
+        LocationD_y.append(float(str(i).split(",")[11]))
         temp = str(i).split(",")[12]
-        LocaDz.append(float(temp.split("*")[0]))
+        LocationD_z.append(float(temp.split("*")[0]))
         
         
 for i in LocationD[".data"]:
@@ -54,9 +54,9 @@ for i in LocationD[".header.stamp.secs"][1:]:
 
 
 r = 40
-(t2, ad, ade, adn) = allantools.adev(np.array(LocaDx), rate=r, data_type="freq", taus="decade")
-(t22, add, adde, addn) = allantools.adev(np.array(LocaDy), rate=r, data_type="freq", taus="decade")
-(t222, addd, addde, adddn) = allantools.adev(np.array(LocaDz), rate=r, data_type="freq", taus="decade")
+(t2, ad, ade, adn) = allantools.adev(np.array(LocationD_x), rate=r, data_type="freq", taus="decade")
+(t22, add, adde, addn) = allantools.adev(np.array(LocationD_y), rate=r, data_type="freq", taus="decade")
+(t222, addd, addde, adddn) = allantools.adev(np.array(LocationD_z), rate=r, data_type="freq", taus="decade")
 fig = plt.loglog(t2, ad,label = "Gyro_x") # Plot the results
 fig = plt.loglog(t22, add,label = "Gyro_y")
 fig = plt.loglog(t222, addd,label = "Gyro_z")
@@ -282,9 +282,9 @@ plt.show()
 # In[319]:
 
 
-plt.plot(time[:635639],LocaDx,label = "Gyro_x")
-plt.plot(time[:635639],LocaDy,label = "Gyro_y")
-plt.plot(time[:635639],LocaDz,label = "Gyro_z")
+plt.plot(time[:635639],LocationD_x,label = "Gyro_x")
+plt.plot(time[:635639],LocationD_y,label = "Gyro_y")
+plt.plot(time[:635639],LocationD_z,label = "Gyro_z")
 plt.xlabel('Time(sec)')
 plt.ylabel('Raw Sensor data')
 plt.title("Gyro vs Time")

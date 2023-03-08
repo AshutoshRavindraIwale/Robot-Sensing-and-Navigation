@@ -36,17 +36,17 @@ def euler_to_quaternion(roll, pitch, yaw):
     yaw_radian = yaw*np.pi/180;
     pitch_radian = pitch*np.pi/180;
     roll_radian = roll*np.pi/180;
-    c_y = math.cos(yaw_radian * 0.5)
-    s_y = math.sin(yaw_radian * 0.5)
-    c_p = math.cos(pitch_radian * 0.5)
-    s_p = math.sin(pitch_radian * 0.5)
-    c_r = math.cos(roll_radian * 0.5)
-    s_r = math.sin(roll_radian * 0.5)
+    cy = math.cos(yaw_radian * 0.5)
+    sy = math.sin(yaw_radian * 0.5)
+    cp = math.cos(pitch_radian * 0.5)
+    sp = math.sin(pitch_radian * 0.5)
+    cr = math.cos(roll_radian * 0.5)
+    sr = math.sin(roll_radian * 0.5)
 
-    qw = c_y * c_p * c_r + s_y * s_p * s_r
-    qx = c_y * c_p * s_r - s_y * s_p * c_r
-    qy = s_y * c_p * s_r + c_y * s_p * c_r
-    qz = s_y * c_p * c_r - c_y * s_p * s_r
+    qw = cy * cp * cr + sy * sp * sr
+    qx = cy * cp * sr - sy * sp * cr
+    qy = sy * cp * sr + cy * sp * cr
+    qz = sy * cp * cr - cy * sp * sr
 
     return Quaternion(x=qx, y=qy, z=qz, w=qw)
 
