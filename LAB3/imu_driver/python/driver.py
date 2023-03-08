@@ -84,7 +84,7 @@ def driver():
             msg.header.stamp.secs = int(now.secs)
             msg.header.stamp.nsecs = int(now.nsecs)
             msg.header.frame_id = 'IMU1_Frame'
-            msg.IMU.orientation.x, msg.IMU.orientation.y, msg.IMU.orientation.z, msg.IMU.orientation.w = euler_to_quaternion(
+            msg.imu.orientation.x, msg.imu.orientation.y, msg.imu.orientation.z, msg.imu.orientation.w = euler_to_quaternion(
                 roll, pitch, yaw)
             #msg.IMU.orientation.x = qx
             #msg.IMU.orientation.y = qy
