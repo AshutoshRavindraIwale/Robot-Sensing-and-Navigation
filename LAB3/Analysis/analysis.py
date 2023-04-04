@@ -9,7 +9,7 @@ import seaborn as sns
 import pandas as pd
 plt.rcParams.update({'font.size': 16})
 
-bag = bagreader('/home/ashutosh/catkin_ws/src/LAB3/data/2023-03-07-23-53-38.bag')
+bag = bagreader('/home/ashutosh/EECE5554/LAB3/Data/stationary.bag')
 data = bag.message_by_topic('/imu')
 readings = pd.read_csv(data)
 w = readings['IMU.orientation.w'] * (np.pi/180)

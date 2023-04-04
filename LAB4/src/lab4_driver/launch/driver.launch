@@ -1,0 +1,7 @@
+<launch>
+	<arg name = "imu_port"/>
+	<arg name = "gps_port"/>
+	<node name ="imu_driver" pkg ="lab4_driver" type ="IMU.py" args="$(arg imu_port)" output="screen"></node>
+	<node name ="gps_driver" pkg ="lab4_driver" type ="GPS.py" args="$(arg gps_port)" output="screen"></node>
+	<node name ="euler_to_quaternion_server" pkg ="lab4_driver" type ="service.py" output="screen"></node>
+</launch>
