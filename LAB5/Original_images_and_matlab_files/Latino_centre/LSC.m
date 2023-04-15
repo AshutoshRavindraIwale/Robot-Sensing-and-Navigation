@@ -1,5 +1,5 @@
 % Load images.
-buildingDir = fullfile("C:\Users\kabad\Desktop\LAB5\myimages\Latino centre");
+buildingDir = fullfile("/home/ashutosh/EECE5554/LAB5/Original_images_and_matlab_files/Latino_centre");
 buildingScene = imageDatastore(buildingDir);
 
 % Display images to be stitched.
